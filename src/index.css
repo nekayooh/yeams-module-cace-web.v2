@@ -1,6 +1,10 @@
 @import "~tailwindcss/dist/tailwind.css";
 @import "~animate.css/animate.css";
 
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 body {
     overflow: hidden;
     margin: 0;
@@ -14,25 +18,4 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.main {
-    background-color:hsla(0,0%,100%,.3);
-}
-
-.main::before {
-    position: absolute;
-    content: '';
-    z-index: -1;
-    width: calc(100vw + 6rem);
-    height: calc(100vh + 6rem);
-    margin: -3rem;
-    left: calc(-50vw + 50%);
-    background-color: rgba(255, 255, 255, .7);
-    background-blend-mode: lighten;
-    background-image: url(http://5b0988e595225.cdn.sohucs.com/images/20170723/1ab072e263c047b2a6ed2efa0d1e1281.jpeg);
-    filter: blur(1.5rem);
-    background-position: center top;
-    background-size: cover;
-    background-attachment: fixed;
 }
