@@ -23,6 +23,8 @@ export default () => {
     });
     //当前显示背景图信息
     const [tBackground2, setTBackground2] = React.useState(undefined);
+    //当前窗口圆角信息
+    const [tRounded, setTRounded] = React.useState("rounded-sm");
     //当前显示背景图信息
     const [tBackground, setTBackground] = React.useState(0);
     //计时器
@@ -106,17 +108,17 @@ export default () => {
                 <YAeroGlass key={index} class={"animated faster " + (tBackground === index ? "fadeIn" : "fadeOut")}
                             backgroundImage={value} filter={"none"}/>)}
             {fLogin === 1 &&
-            <div className="w-64 h-64 absolute flex-grow animated faster rounded-lg zoomIn shadow overflow-hidden"
+            <div className={"w-64 h-64 absolute flex-grow animated faster zoomIn shadow overflow-hidden "+tRounded}
                  onClick={tFunc.clickBaseModal}>
-                <YAeroGlass backgroundColor={"rgba(255,255,255,.7)"} backgroundBlendMode={"lighten"}
-                            backgroundImage={oCompany.background[tBackground]} left={"calc(50% - 50vw)"}
+                <YAeroGlass backgroundColor={"rgba(255,255,255,.85)"} backgroundBlendMode={"lighten"}
+                            backgroundImage={tBackground2} left={"calc(50% - 50vw)"}
                             top={"calc(50% - 50vh)"}/>
             </div>}
             {/*主页背景图*/}
             {fLogin === -1 && <YAeroGlass backgroundImage={tBackground2} filter={"none"}/>}
             {/*显示页面区域*/}
             {fLogin === -1 && <div className="w-full flex-grow" onClick={tFunc.clickBaseModal}>
-                <YWindow tBackground2={tBackground2} />
+                <YWindow tBackground2={tBackground2} Rounded={tRounded} />
             </div>}
             {/*底部菜单区域*/}
             {fLogin === -1 && <div
@@ -126,125 +128,23 @@ export default () => {
 
                     {/*菜单信息弹窗*/}
                     {fMenu > -1 && <div
-                        className={"sm:w-2/3 sm:h-auto w-full h-screen bg-white absolute shadow bottom-0 mb-12 rounded-lg flex items-center justify-center overflow-hidden animated faster " + (fMenu === 1 ? "fadeInUp" : "fadeOutDown")}
+                        className={"sm:w-2/3 sm:h-auto w-full h-screen bg-white absolute shadow bottom-0 mb-12 flex items-center justify-center overflow-hidden animated faster "+tRounded+" " + (fMenu === 1 ? "fadeInUp" : "fadeOutDown")}
                         style={{maxHeight: "calc(100vh - 3rem)"}}>
-                        <YAeroGlass backgroundColor={"rgba(255,255,255,.8)"} backgroundBlendMode={"lighten"}
+                        <YAeroGlass backgroundColor={"rgba(255,255,255,.85)"} backgroundBlendMode={"lighten"}
                                     backgroundImage={tBackground2}
                                     left={"calc(50% - 50vw)"} top={"calc(-100vh + 100%)"}/>
 
                         <div
                             className="w-full h-full flex flex-col">
                             <div className="w-full flex justify-center items-center">
-                                <input className="text-center shadow-inner rounded py-1 px-3 text-sm my-2"
+                                <input className={"text-center shadow-inner py-1 px-3 text-sm my-2 "+tRounded}
                                        style={{backgroundColor: "rgba(0,0,0,.03)"}}/>
                                 <div className="ri-shut-down-line"/>
                             </div>
                             <div
                                 className="w-full flex-grow overflow-auto flex items-center justify-center flex-wrap content-start">
                                 <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
-                                <div
-                                    className="ri-shut-down-line text-blue-500 hover:text-blue-500 rounded-lg h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer"/>
+                                    className={"ri-shut-down-line text-blue-500 hover:text-blue-500 h-12 w-12 m-1 text-lg flex-none flex items-center justify-center cursor-pointer "+tRounded}/>
                             </div>
                         </div>
 
@@ -253,13 +153,13 @@ export default () => {
 
                     {/*用户信息弹窗*/}
                     {fMine > -1 && <div
-                        className={"absolute bg-white h-16 shadow bottom-0 mb-12 rounded-lg flex justify-between items-center overflow-hidden animated faster " + (fMine === 1 ? "fadeInUp" : "fadeOutDown")}>
-                        <YAeroGlass backgroundColor={"rgba(255,255,255,.8)"} backgroundBlendMode={"lighten"}
+                        className={"absolute bg-white h-16 shadow bottom-0 mb-12 flex justify-between items-center overflow-hidden animated faster "+tRounded+" " + (fMine === 1 ? "fadeInUp" : "fadeOutDown")}>
+                        <YAeroGlass backgroundColor={"rgba(255,255,255,.85)"} backgroundBlendMode={"lighten"}
                                     backgroundImage={tBackground2}
                                     left={"calc(50% - 50vw)"} top={"calc(-100vh + 100%)"}/>
-                        <div className="flex-none rounded-lg h-16 w-16 mr-1 bg-cover"
+                        <div className={"flex-none h-16 w-16 mr-1 bg-cover "+tRounded}
                              style={{backgroundImage: "url(https://randomuser.me/api/portraits/men/1.jpg)"}}/>
-                        <div className="flex-grow rounded-lg w-40 h-16 flex flex-col items-center justify-center p-1">
+                        <div className={"flex-grow w-40 h-16 flex flex-col items-center justify-center p-1 "+tRounded}>
                             <div className="text-sm text-blue-500 w-40 truncate flex justify-center items-center">我的名字
                             </div>
                             <div className="text-xs text-gray-700 w-40 truncate flex justify-center items-center">南门区红星店
@@ -269,26 +169,26 @@ export default () => {
                                 className="text-xs text-gray-700 w-40 truncate flex justify-center items-center">15678973783
                             </div>
                         </div>
-                        <div className="flex-none rounded-lg ml-1 mt-1 flex flex-col">
+                        <div className={"flex-none ml-1 mt-1 flex flex-col "+tRounded}>
                             <div
-                                className="ri-shield-keyhole-line text-blue-500 hover:bg-white hover:text-blue-500 rounded-lg h-6 w-6 mr-1 mb-1 text-lg flex items-center justify-center cursor-pointer"/>
+                                className={"ri-shield-keyhole-line text-blue-500 hover:bg-white hover:text-blue-500 h-6 w-6 mr-1 mb-1 text-lg flex items-center justify-center cursor-pointer "+tRounded}/>
                             <div
-                                className="ri-settings-6-line text-blue-500 hover:bg-white hover:text-blue-500 rounded-lg h-6 w-6 mr-1 mb-1 text-lg flex items-center justify-center cursor-pointer"/>
+                                className={"ri-settings-6-line text-blue-500 hover:bg-white hover:text-blue-500 h-6 w-6 mr-1 mb-1 text-lg flex items-center justify-center cursor-pointer "+tRounded}/>
                         </div>
-                        <div className="flex-none rounded-lg mt-1 flex flex-col">
+                        <div className={"flex-none mt-1 flex flex-col "+tRounded}>
                             <div onClick={() => {
                                 setTLocal("en");
                             }}
-                                 className="ri-earth-line text-blue-500 hover:bg-white hover:text-blue-500 rounded-lg h-6 w-6 mr-1 mb-1 text-lg flex items-center justify-center cursor-pointer"/>
+                                 className={"ri-earth-line text-blue-500 hover:bg-white hover:text-blue-500 h-6 w-6 mr-1 mb-1 text-lg flex items-center justify-center cursor-pointer "+tRounded}/>
                             <div
-                                className="ri-shut-down-line text-blue-500 hover:bg-white hover:text-blue-500 rounded-lg h-6 w-6 mr-1 mb-1 text-lg flex items-center justify-center cursor-pointer"/>
+                                className={"ri-shut-down-line text-blue-500 hover:bg-white hover:text-blue-500 h-6 w-6 mr-1 mb-1 text-lg flex items-center justify-center cursor-pointer "+tRounded}/>
                         </div>
                     </div>}
                 </div>
                 {/*底部信息框*/}
                 <div className="flex justify-center z-10">
                     <div
-                        className="absolute flex-none z-10 max-w-full rounded-t flex justify-center px-1 overflow-hidden">
+                        className={"absolute flex-none z-10 max-w-full flex justify-center px-1 overflow-hidden "+tRounded}>
 
                         <YAeroGlass backgroundColor={"rgba(0,0,0,.55)"} backgroundBlendMode={"darken"}
                                     backgroundImage={tBackground2}
@@ -298,7 +198,7 @@ export default () => {
                             <div onClick={() => {
                                 tFunc.clickBaseModal("menu");
                             }}
-                                 className="ri-apps-line flex-none text-blue-500 bg-white hover:bg-white hover:text-blue-500  rounded-lg shadow h-10 w-10 m-1 text-2xl flex items-center justify-center cursor-pointer"/>
+                                 className={"ri-apps-line flex-none text-blue-500 bg-white hover:bg-white hover:text-blue-500 shadow h-10 w-10 m-1 text-2xl flex items-center justify-center cursor-pointer "+tRounded}/>
                         }/>
 
                         {/*消息邮件*/}
@@ -319,7 +219,7 @@ export default () => {
                             <div onClick={tFunc.clickBaseModal} className="flex" style={{height: 0}}>
                                 <YTooltip marginLeft={-tScrollLeft} class={"flex-none"} name={"菜单"} element={
                                     <div
-                                        className="ri-apps-line flex-none text-blue-500 bg-white hover:bg-white hover:text-blue-500 rounded-lg shadow h-10 w-10 m-1 text-2xl flex items-center justify-center cursor-pointer"/>
+                                        className={"ri-apps-line flex-none text-blue-500 bg-white hover:bg-white hover:text-blue-500 shadow h-10 w-10 m-1 text-2xl flex items-center justify-center cursor-pointer "+tRounded}/>
                                 }/><YTooltip marginLeft={-tScrollLeft} class={"flex-none"} name={"菜单"} element={
                                 <div
                                     className="ri-apps-line flex-none text-blue-500 bg-white hover:bg-white hover:text-blue-500 rounded-lg shadow h-10 w-10 m-1 text-2xl flex items-center justify-center cursor-pointer"/>
@@ -383,7 +283,7 @@ export default () => {
                             <div onClick={() => {
                                 tFunc.clickBaseModal("now");
                             }}
-                                 className="flex-none text-gray-700 bg-white rounded-full border-2 border-orange-500 shadow h-10 w-10 m-1 flex items-center justify-center cursor-pointer">
+                                 className={"flex-none text-gray-700 bg-white border-2 border-orange-500 shadow h-10 w-10 m-1 flex items-center justify-center cursor-pointer "+ tRounded}>
                                 <div className="flex items-baseline justify-center">
                                     <div className="text-lg">{tNow.format("HH")}</div>
                                     <div className="text-xs">{tNow.format("mm")}</div>
@@ -394,7 +294,7 @@ export default () => {
                         <YTooltip class={"flex-none"} name={"我的"} element={
                             <div onClick={() => {
                                 tFunc.clickBaseModal("mine");
-                            }} className="flex-none rounded-lg shadow h-10 w-10 m-1 cursor-pointer bg-cover"
+                            }} className={"flex-none shadow h-10 w-10 m-1 cursor-pointer bg-cover " + tRounded}
                                  style={{backgroundImage: "url(https://randomuser.me/api/portraits/men/1.jpg)"}}/>
                         }/>
 
